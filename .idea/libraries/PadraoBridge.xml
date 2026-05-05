@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PadraoBridge">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PadraoBridge.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

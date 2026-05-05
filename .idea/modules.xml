@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PadraoBridge/PadraoBridge.iml" filepath="$PROJECT_DIR$/PadraoBridge/PadraoBridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PadrãoSingleton/PadrãoSingleton.iml" filepath="$PROJECT_DIR$/PadrãoSingleton/PadrãoSingleton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Trabalho financas.iml" filepath="$PROJECT_DIR$/.idea/Trabalho financas.iml" />
+    </modules>
+  </component>
+</project>
