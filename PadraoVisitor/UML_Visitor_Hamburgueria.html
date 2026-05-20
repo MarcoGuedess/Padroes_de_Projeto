@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <title>UML Padrão Visitor — Hamburgueria</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      font-family: sans-serif;
+    }
+    h2 {
+      color: #1a1a1a;
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+    .mermaid {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      max-width: 900px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h2>Padrão Visitor — Hamburgueria</h2>
+
+  <div class="mermaid">
+classDiagram
+    direction TB
+
+    class ItemVisitor {
+        &lt;&lt;interface&gt;&gt;
+        +visitarHamburguer(h Hamburguer) String
+        +visitarBebida(b Bebida) String
+        +visitarAcompanhamento(a Acompanhamento) String
+    }
+
+    class PedidoVisitor {
+        +exibir(item ItemCardapio) String
+        +visitarHamburguer(h Hamburguer) String
+        +visitarBebida(b Bebida) String
+        +visitarAcompanhamento(a Acompanhamento) String
+    }
+
+    class ItemCardapio {
+        &lt;&lt;interface&gt;&gt;
+        +aceitar(v ItemVisitor) String
+    }
+
+    class Hamburguer {
+        -codigo int
+        -nome String
+        -preco double
+        -tipo String
+        +aceitar(v ItemVisitor) String
+    }
+
+    class Bebida {
+        -codigo int
+        -nome String
+        -preco double
+        -tamanho String
+        +aceitar(v ItemVisitor) String
+    }
+
+    class Acompanhamento {
+        -codigo int
+        -nome String
+        -preco double
+        -porcaoGramas int
+        +aceitar(v ItemVisitor) String
+    }
+
+    PedidoVisitor ..|> ItemVisitor : implements
+    Hamburguer    ..|> ItemCardapio : implements
+    Bebida        ..|> ItemCardapio : implements
+    Acompanhamento ..|> ItemCardapio : implements
+    PedidoVisitor ..> ItemCardapio  : uses
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      themeVariables: {
+        primaryColor: '#eef2ff',
+        primaryTextColor: '#1a1a1a',
+        primaryBorderColor: '#5c6bc0',
+        lineColor: '#555555',
+        secondaryColor: '#e8f5e9',
+        tertiaryColor: '#fff3e0'
+      }
+    });
+  </script>
+</body>
+</html>
